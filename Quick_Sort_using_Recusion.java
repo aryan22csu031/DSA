@@ -31,7 +31,5 @@ class qs{
         }
         QuickSort(arr,low,e);
         QuickSort(arr,s,high);
-
-
     }
 }
