@@ -38,6 +38,29 @@ class doublyLinkedList{
         n1.previous = Pointer;
         size++ ;
     }
+    public void insertAtIndex(int data, int index){
+        Node n1 = new Node(data);
+        Node Pointer = head;
+        for(int i=0; i<index-1; i++){
+            Pointer = Pointer.next;
+        }
+        n1.previous = Pointer;
+        n1.next = Pointer.next;
+        Pointer.next = n1;
+        size++;
+    }
+    public void deleteAtIndex(int index){
+        Node secondlast = head;
+        Node last = head.next;
+        for(int i=0; i<index-1; i++){
+            last = last.next;
+            secondlast = secondlast.next;
+        }
+        (last.next).previous = secondlast;
+        secondlast.next = last.next;
+        size--;
+
+    }
     public void printList() {
         Node current = head;
         System.out.print("Null <-> ");
@@ -54,6 +77,10 @@ class doublyLinkedList{
         list1.InsertAtLast(3);
         list1.InsertAtLast(4);
         list1.InsertAtLast(5);
+        list1.printList();
+        list1.insertAtIndex(6,3);
+        list1.printList();
+        list1.deleteAtIndex(3);
         list1.printList();
     }
 }
